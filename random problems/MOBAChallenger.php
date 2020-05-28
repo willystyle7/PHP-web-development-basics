@@ -7,10 +7,10 @@ while ($input !== "Season end") {
         $player = $args[0];
         $position = $args[1];
         $skill = $args[2];
-        if (!key_exists($player, $playerPool)) {
+        if (!array_key_exists($player, $playerPool)) {
             $playerPool[$player][$position] = $skill;
         } else {
-            if (!key_exists($position, $playerPool[$player])) {
+            if (!array_key_exists($position, $playerPool[$player])) {
                 $playerPool[$player][$position] = $skill;
             } elseif ($playerPool[$player][$position] < $skill) {
                 $playerPool[$player][$position] = $skill;
@@ -22,7 +22,7 @@ while ($input !== "Season end") {
         $player1 = $args[0];
         $player2 = $args[1];
         $playing = false;
-        if (key_exists($player1, $playerPool) && key_exists($player2, $playerPool)) {
+        if (array_key_exists($player1, $playerPool) && array_key_exists($player2, $playerPool)) {
             foreach ($playerPool[$player1] as $position1 => $skill1) {
                 foreach ($playerPool[$player2] as $position2 => $skill2) {
                     if ($position1 == $position2) {
